@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // SQLiteCloud 데이터베이스 설정
-const db = new Database('sqlitecloud://cahlaaimhz.sqlite.cloud:8860?apikey=sUeUH5MOb1Yx1F5MHaawodHQbbzO88gMA0XpYuNH3DU');
+const db = new Database('sqlitecloud://cahlaaimhz.sqlite.cloud:8860/database.sqlite?apikey=sUeUH5MOb1Yx1F5MHaawodHQbbzO88gMA0XpYuNH3DU');
 
 // 데이터베이스 선택 함수
 const useDatabase = async () => {

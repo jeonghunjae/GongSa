@@ -8,7 +8,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@sqlitecloud/drivers": "^1.0.289",
+    "@sqlitecloud/drivers": "^1.0.417",
     "axios": "^1.7.7",
     "cheerio": "^1.0.0",
     "ejs": "^3.1.10",

@@ -24,7 +24,7 @@ const useDatabase = async () => {
     console.log('Database selected');
   } catch (error) {
     console.error('Error selecting database:', error);
-    throw error; // 문제 발생 시 실행 중단
+    //throw error; // 문제 발생 시 실행 중단
   }
 };
 

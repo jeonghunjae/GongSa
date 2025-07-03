@@ -20,7 +20,7 @@ let db;
 
 async function connectDatabase() {
   try {
-    db = new Database('sqlitecloud://cahlaaimhz.sqlite.cloud:8860?apikey=sUeUH5MOb1Yx1F5MHaawodHQbbzO88gMA0XpYuNH3DU&connectTimeout=20000&socketTimeout=120000');
+    db = new Database('sqlitecloud://cahlaaimhz.sqlite.cloud:8860?apikey=sUeUH5MOb1Yx1F5MHaawodHQbbzO88gMA0XpYuNH3DU');
     await db.sql`USE DATABASE database.sqlite;`;
     console.log("SQLiteCloud 연결 성공");
   } catch (err) {

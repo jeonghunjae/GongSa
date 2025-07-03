@@ -17,7 +17,21 @@ app.use(express.urlencoded({ extended: true }));
 // SQLiteCloud 데이터베이스 설정
 // 기존 const db = new Database(...) 부분을
 // SQLiteCloud 데이터베이스 설정
-const db = new Database('sqlitecloud://cahlaaimhz.g4.sqlite.cloud:8860/database.sqlite?apikey=sUeUH5MOb1Yx1F5MHaawodHQbbzO88gMA0XpYuNH3DU&connectTimeout=5000&socketTimeout=60000');
+//const db = new Database('sqlitecloud://cahlaaimhz.g4.sqlite.cloud:8860/database.sqlite?apikey=sUeUH5MOb1Yx1F5MHaawodHQbbzO88gMA0XpYuNH3DU&connectTimeout=5000&socketTimeout=60000');
+
+
+async function connectDatabase() {
+  try {
+    db = new Database('sqlitecloud://cahlaaimhz.g4.sqlite.cloud:8860/database.sqlite?apikey=sUeUH5MOb1Yx1F5MHaawodHQbbzO88gMA0XpYuNH3DU&connectTimeout=5000&socketTimeout=60000');
+    console.log("SQLiteCloud 연결 성공");
+  } catch (error) {
+    console.error("SQLiteCloud 연결 실패, 5초 후 재시도", error);
+    setTimeout(connectDatabase, 5000);
+  }
+}
+
+connectDatabase();
+
 
 
 // 데이터베이스 선택 함수

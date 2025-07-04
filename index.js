@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 
 async function connectDatabase() {
   try {
-    db = new Database('sqlitecloud://cahlaaimhz.g4.sqlite.cloud:8860/database.sqlite?apikey=sUeUH5MOb1Yx1F5MHaawodHQbbzO88gMA0XpYuNH3DU&connectTimeout=5000&socketTimeout=60000');
+    db = new Database('sqlitecloud://cahlaaimhz.g4.sqlite.cloud:8860/database.sqlite?apikey=sUeUH5MOb1Yx1F5MHaawodHQbbzO88gMA0XpYuNH3DU');
     console.log("SQLiteCloud 연결 성공");
   } catch (error) {
     console.error("SQLiteCloud 연결 실패, 5초 후 재시도", error);

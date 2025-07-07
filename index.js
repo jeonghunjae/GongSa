@@ -32,7 +32,11 @@ async function connectDatabase() {
 
 connectDatabase();
 
-
+// 이후 10분(600,000ms)마다 재연결
+setInterval(() => {
+  console.log("주기적으로 DB 재연결 시도");
+  connectDatabase();
+}, 600000); // 10분
 
 // 데이터베이스 선택 함수
 const useDatabase = async () => {

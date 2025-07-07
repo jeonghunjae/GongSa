@@ -19,8 +19,23 @@ app.use(express.urlencoded({ extended: true }));
 // SQLiteCloud 데이터베이스 설정
 //const db = new Database('sqlitecloud://cahlaaimhz.g4.sqlite.cloud:8860/database.sqlite?apikey=sUeUH5MOb1Yx1F5MHaawodHQbbzO88gMA0XpYuNH3DU');
 
-
 async function connectDatabase() {
+  try {
+    // 이전 객체가 있으면 null 처리 (강제로 gc에 맡김)
+    if (db) {
+      console.log("기존 db 연결을 null 처리");
+      db = null;
+    }
+
+    db = new Database('sqlitecloud://cahlaaimhz.g4.sqlite.cloud:8860/database.sqlite?apikey=sUeUH5MOb1Yx1F5MHaawodHQbbzO88gMA0XpYuNH3DU');
+    console.log("SQLiteCloud 연결 성공");
+  } catch (err) {
+    console.error("DB 연결 실패, 5초 후 재시도", err);
+    setTimeout(connectDatabase, 5000);
+  }
+}
+
+/*async function connectDatabase() {
   try {
     db = new Database('sqlitecloud://cahlaaimhz.g4.sqlite.cloud:8860/database.sqlite?apikey=sUeUH5MOb1Yx1F5MHaawodHQbbzO88gMA0XpYuNH3DU');
     console.log("SQLiteCloud 연결 성공");
@@ -28,7 +43,7 @@ async function connectDatabase() {
     console.error("SQLiteCloud 연결 실패, 5초 후 재시도", error);
     setTimeout(connectDatabase, 5000);
   }
-}
+}*/
 
 connectDatabase();
 
